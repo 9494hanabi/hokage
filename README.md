@@ -1,5 +1,40 @@
 # hokage
 
+## Pull Request 作成ショートカット
+
+`scripts/create-pr.sh` は、現在作業中のブランチを `origin` にプッシュし、
+`upstream/main` に対する Pull Request を作成します。
+
+```bash
+git switch -c 自分の名前/変更内容
+# ファイルを編集してコミットします。
+./scripts/create-pr.sh
+```
+
+タイトルや本文などの GitHub CLI オプションも指定できます。
+
+```bash
+./scripts/create-pr.sh --title "機能を追加" --body "変更内容の概要"
+```
+
+実行には、GitHub CLI の認証、コミット済みの作業ツリー、および以下の
+remote 設定が必要です。
+
+```bash
+git remote add origin https://github.com/YOUR_ACCOUNT/hokage.git
+git remote add upstream https://github.com/9494hanabi/hokage.git
+```
+
+## チーム開発ルール
+
+1. 自分の名前を含むブランチを作成し、そのブランチ上で作業してください。
+2. このリポジトリにはレビュワーがいます。レビューしやすい状態で変更を提出してください。
+3. 大きな変更は、焦点を絞った複数の Pull Request に分けてください。
+4. 他の人が理解しやすい、整理されたコードを書いてください。
+5. `README.md`、`CLAUDE.md`、`AGENTS.md` は編集しないでください。
+
+## English
+
 ## Pull request shortcut
 
 `scripts/create-pr.sh` pushes the current working branch to `origin` and creates
@@ -32,3 +67,4 @@ git remote add upstream https://github.com/9494hanabi/hokage.git
    can be reviewed clearly.
 3. Split large changes into multiple focused pull requests.
 4. Write clean, organized code that other people can understand easily.
+5. Do not edit `README.md`, `CLAUDE.md`, or `AGENTS.md`.
