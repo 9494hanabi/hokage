@@ -1,0 +1,43 @@
+/**
+ * Top-level build file for FTC Robot Controller project.
+ *
+ * Based on FIRST-Tech-Challenge/FtcRobotController (SDK 11.1.0)
+ * https://github.com/FIRST-Tech-Challenge/FtcRobotController
+ */
+
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.7.2'
+    }
+}
+
+// repositories はすべてのプロジェクトに適用
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+// dependencies はサブプロジェクト (android plugin適用済み) にのみ適用
+subprojects {
+    afterEvaluate {
+        if (it.hasProperty('android')) {
+            dependencies {
+                implementation 'org.firstinspires.ftc:Inspection:11.1.0'
+                implementation 'org.firstinspires.ftc:Blocks:11.1.0'
+                implementation 'org.firstinspires.ftc:RobotCore:11.1.0'
+                implementation 'org.firstinspires.ftc:RobotServer:11.1.0'
+                implementation 'org.firstinspires.ftc:OnBotJava:11.1.0'
+                implementation 'org.firstinspires.ftc:Hardware:11.1.0'
+                implementation 'org.firstinspires.ftc:FtcCommon:11.1.0'
+                implementation 'org.firstinspires.ftc:Vision:11.1.0'
+                implementation 'androidx.appcompat:appcompat:1.2.0'
+            }
+        }
+    }
+}

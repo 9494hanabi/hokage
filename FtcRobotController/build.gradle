@@ -1,0 +1,12 @@
+/**
+ * FtcRobotController module build.gradle
+ *
+ * This module is the main robot controller application.
+ * All your custom code goes in TeamCode, not here.
+ */
+
+apply from: '../build.common.gradle'
+
+android {
+    namespace 'com.qualcomm.ftcrobotcontroller'
+}

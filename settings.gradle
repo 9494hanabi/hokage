@@ -1,0 +1,10 @@
+/**
+ * settings.gradle
+ *
+ * Defines the project modules. In the standard FtcRobotController layout,
+ * you typically include both FtcRobotController and TeamCode modules.
+ * For this environment, TeamCode is where your OpModes live.
+ */
+
+include ':FtcRobotController'
+include ':TeamCode'

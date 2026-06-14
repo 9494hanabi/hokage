@@ -1,0 +1,9 @@
+/**
+ * build.dependencies.gradle
+ *
+ * FTC SDK dependencies are now managed in the root build.gradle
+ * via subprojects { afterEvaluate { ... } } block.
+ *
+ * This file is kept for compatibility but is no longer applied directly.
+ * SDK version: 11.1.0
+ */

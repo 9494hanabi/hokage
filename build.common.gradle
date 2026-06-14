@@ -1,0 +1,79 @@
+/**
+ * build.common.gradle
+ *
+ * Shared build configuration for FTC Robot Controller applications.
+ * Updated for AGP 8.7.x + Gradle 8.9 compatibility.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 34
+
+    signingConfigs {
+        release {
+            def apkStoreFile = System.getenv("APK_SIGNING_STORE_FILE")
+            if (apkStoreFile != null) {
+                keyAlias System.getenv("APK_SIGNING_KEY_ALIAS")
+                keyPassword System.getenv("APK_SIGNING_KEY_PASSWORD")
+                storeFile file(System.getenv("APK_SIGNING_STORE_FILE"))
+                storePassword System.getenv("APK_SIGNING_STORE_PASSWORD")
+            } else {
+                keyAlias 'androiddebugkey'
+                keyPassword 'android'
+                storeFile rootProject.file('libs/ftc.debug.keystore')
+                storePassword 'android'
+            }
+        }
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile rootProject.file('libs/ftc.debug.keystore')
+            storePassword 'android'
+        }
+    }
+
+    defaultConfig {
+        signingConfig signingConfigs.debug
+        applicationId 'com.qualcomm.ftcrobotcontroller'
+        minSdk 24
+        targetSdk 28
+
+        versionCode 51
+        versionName "11.1"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a"
+            }
+        }
+        debug {
+            debuggable true
+            jniDebuggable true
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a"
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packaging {
+        jniLibs {
+            pickFirsts += ['**/*.so']
+        }
+        resources {
+            pickFirsts += ['**/*.so']
+        }
+    }
+
+    lint {
+        abortOnError false
+    }
+}

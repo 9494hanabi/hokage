@@ -1,0 +1,27 @@
+/**
+ * TeamCode build.gradle
+ *
+ * This is where you add custom dependencies for your team's code.
+ */
+
+apply from: '../build.common.gradle'
+
+android {
+    namespace 'org.firstinspires.ftc.teamcode'
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+}
+
+dependencies {
+    // --- Optional: Uncomment to add popular FTC libraries ---
+    // FTCLib (utility library)
+    // implementation 'org.ftclib.ftclib:core:2.1.1'
+
+    // Road Runner (motion planning)
+    // implementation 'com.acmerobotics.roadrunner:core:1.0.0'
+    // implementation 'com.acmerobotics.dashboard:dashboard:0.4.16'
+}

@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Gradle
+.gradle/
+**/build/
+
+# Local Android SDK configuration
+local.properties
+
+# Android build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Java
+*.class
+hs_err_pid*
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*~
